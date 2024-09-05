@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "fapello-downloader"
+version = "0.1.0"
+description = "NSFW python app to batch download images and videos from website https://fapello.com"
+license = "MIT"
+authors = ["YisusChrist <agelrenorenardo@gmail.com>"]
+readme = "README.md"
+repository = "https://github.com/YisusChrist/Fapello.Downloader"
+
+[tool.poetry.dependencies]
+python = ">=3.12,<3.13"
+beautifulsoup4 = "^4.12.3"
+requests = "^2.32.3"
+pillow = "^10.4.0"
+customtkinter = "^5.2.2"
+
+[tool.poetry.dev-dependencies]
+
+[tool.poetry.scripts]
+"fapello-downloader" = "fapello_downloader.__main__:main"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
