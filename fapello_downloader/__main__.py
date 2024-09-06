@@ -17,8 +17,8 @@ def main() -> None:
     set_default_color_theme("dark-blue")
 
     app = App()
-    app.window.update()
-    app.window.mainloop()
+    app.gui.window.update()
+    app.gui.window.mainloop()
 
 
 if __name__ == "__main__":

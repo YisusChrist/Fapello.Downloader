@@ -1,15 +1,13 @@
-"""Graphical User Interface module for the downloader."""
+"""Message box implementing CTK for displaying info or error messages."""
 
 from customtkinter import CTkButton, CTkLabel, CTkToplevel  # type: ignore
-
-from typing import Any
 
 
 class CTkMessageBox(CTkToplevel):
 
     def __init__(
             self,
-            app_instance: Any,
+            fonts: dict,
             messageType: str,
             title: str,
             subtitle: str,
@@ -21,7 +19,7 @@ class CTkMessageBox(CTkToplevel):
 
         self._running: bool = False
 
-        self._app_instance = app_instance
+        self._fonts = fonts
         self._messageType = messageType
         self._title = title
         self._subtitle = subtitle
@@ -68,7 +66,7 @@ class CTkMessageBox(CTkToplevel):
             justify    = "left",
             fg_color   = "transparent",
             text_color = title_subtitle_text_color,
-            font       = self._app_instance.fonts.get("bold22"),
+            font       = self._fonts.get("bold22"),
             text       = self._title
             )
 
@@ -80,7 +78,7 @@ class CTkMessageBox(CTkToplevel):
                 justify    = "left",
                 fg_color   = "transparent",
                 text_color = "#3399FF",
-                font       = self._app_instance.fonts.get("bold17"),
+                font       = self._fonts.get("bold17"),
                 text       = f"Default: {self._default_value}"
                 )
 
@@ -91,7 +89,7 @@ class CTkMessageBox(CTkToplevel):
             justify    = "left",
             fg_color   = "transparent",
             text_color = title_subtitle_text_color,
-            font       = self._app_instance.fonts.get("bold14"),
+            font       = self._fonts.get("bold14"),
             text       = self._subtitle
             )
 
@@ -121,7 +119,7 @@ class CTkMessageBox(CTkToplevel):
                                     text_color = "#C0C0C0",
                                     fg_color   = "#282828",
                                     bg_color   = "transparent",
-                                    font       = self._app_instance.fonts.get("bold12"),
+                                    font       = self._fonts.get("bold12"),
                                     text       = option_text)
 
             self._ctkwidgets_index += 1
@@ -138,7 +136,7 @@ class CTkMessageBox(CTkToplevel):
             command = self._ok_event,
             text    = 'OK',
             width   = 125,
-            font         = self._app_instance.fonts.get("bold11"),
+            font         = self._fonts.get("bold11"),
             border_width = 1,
             fg_color     = "#282828",
             text_color   = "#E0E0E0",
