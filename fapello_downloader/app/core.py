@@ -16,7 +16,6 @@ from fapello_downloader.utils import count_files_in_directory, stop_thread
 
 
 class App:
-
     def __init__(self) -> None:
         # Initialize the GUI
         self.gui = GUI()
@@ -66,7 +65,6 @@ class App:
             self.info_message.set("Insert a valid Fapello.com link")
 
         elif "https://fapello.com" in selected_link:
-
             download_type = "fapello.com"
 
             if not selected_link.endswith("/"):

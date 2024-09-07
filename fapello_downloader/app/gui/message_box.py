@@ -4,7 +4,6 @@ from customtkinter import CTkButton, CTkLabel, CTkToplevel  # type: ignore
 
 
 class CTkMessageBox(CTkToplevel):
-
     def __init__(
         self,
         fonts: dict,
@@ -14,7 +13,6 @@ class CTkMessageBox(CTkToplevel):
         default_value: str,
         option_list: list,
     ) -> None:
-
         super().__init__()
 
         self._running: bool = False

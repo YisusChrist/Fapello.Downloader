@@ -36,7 +36,6 @@ def get_Fapello_file_url(link: str) -> tuple:
 
 
 def get_Fapello_files_number(url: str) -> int:
-
     headers = headers_for_request
     page = requests_get(url, headers=headers)
     soup = BeautifulSoup(page.content, "html.parser")
@@ -55,7 +54,6 @@ def get_Fapello_files_number(url: str) -> int:
 
 
 def thread_download_file(link: str, target_dir: str, index: int) -> None:
-
     headers = headers_for_request
     link = link + str(index)
     model_name = link.split("/")[3]
@@ -80,7 +78,6 @@ def thread_download_file(link: str, target_dir: str, index: int) -> None:
 def download_orchestrator(
     processing_queue: multiprocessing_Queue, selected_link: str, cpu_number: int
 ) -> None:
-
     target_dir = selected_link.split("/")[3]
     list_of_index = []
 

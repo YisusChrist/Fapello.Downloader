@@ -20,7 +20,6 @@ from fapello_downloader.utils import (find_by_relative_path, opengithub,
 
 
 class GUI:
-
     def __init__(self) -> None:
         """Initialize the GUI."""
         # Create the main window
