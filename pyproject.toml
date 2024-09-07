@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "fapello-downloader"
-version = "0.1.0"
+version = "1.0.0"
 description = "NSFW python app to batch download images and videos from website https://fapello.com"
 license = "MIT"
 authors = ["YisusChrist <agelrenorenardo@gmail.com>"]
