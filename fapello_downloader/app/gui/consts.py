@@ -8,6 +8,9 @@ from PIL.Image import open as pillow_image_open
 from fapello_downloader.utils import find_by_relative_path
 
 
+ASSETS_PATH: str = find_by_relative_path("assets")
+
+
 # Fonts
 def create_fonts() -> dict[str, CTkFont]:
     # Initialize the fonts after the root window is created
@@ -34,26 +37,30 @@ def create_fonts() -> dict[str, CTkFont]:
 
 # Images
 logo_git = CTkImage(
-    pillow_image_open(find_by_relative_path(f"../Assets{os_separator}github_logo.png")),
+    pillow_image_open(find_by_relative_path(f"{ASSETS_PATH}{os_separator}github_logo.png")),
     size=(15, 15),
 )
 logo_telegram = CTkImage(
-    pillow_image_open(find_by_relative_path(f"../Assets{os_separator}telegram_logo.png")),
+    pillow_image_open(
+        find_by_relative_path(f"{ASSETS_PATH}{os_separator}telegram_logo.png")
+    ),
     size=(15, 15),
 )
 stop_icon = CTkImage(
-    pillow_image_open(find_by_relative_path(f"../Assets{os_separator}stop_icon.png")),
+    pillow_image_open(find_by_relative_path(f"{ASSETS_PATH}{os_separator}stop_icon.png")),
     size=(15, 15),
 )
 info_icon = CTkImage(
-    pillow_image_open(find_by_relative_path(f"../Assets{os_separator}info_icon.png")),
+    pillow_image_open(find_by_relative_path(f"{ASSETS_PATH}{os_separator}info_icon.png")),
     size=(14, 14),
 )
 download_icon = CTkImage(
-    pillow_image_open(find_by_relative_path(f"../Assets{os_separator}download_icon.png")),
+    pillow_image_open(
+        find_by_relative_path(f"{ASSETS_PATH}{os_separator}download_icon.png")
+    ),
     size=(15, 15),
 )
 logo_qs = CTkImage(
-    pillow_image_open(find_by_relative_path(f"../Assets{os_separator}qs_logo.png")),
+    pillow_image_open(find_by_relative_path(f"{ASSETS_PATH}{os_separator}qs_logo.png")),
     size=(15, 15),
 )

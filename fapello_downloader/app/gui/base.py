@@ -7,8 +7,9 @@ from typing import Callable
 from customtkinter import (CTk, CTkButton, CTkEntry, CTkFont,  # type: ignore
                            CTkLabel)
 
-from fapello_downloader.app.gui.consts import (create_fonts, download_icon,
-                                               info_icon, logo_git, logo_qs,
+from fapello_downloader.app.gui.consts import (ASSETS_PATH, create_fonts,
+                                               download_icon, info_icon,
+                                               logo_git, logo_qs,
                                                logo_telegram, stop_icon)
 from fapello_downloader.app.gui.message_box import CTkMessageBox
 from fapello_downloader.consts import app_name, app_name_color, version
@@ -41,7 +42,7 @@ class GUI:
         self.window.minsize(self.width, self.height)
         self.window.resizable(False, False)
         self.window.iconbitmap(
-            find_by_relative_path("../Assets" + os_separator + "logo.ico")
+            find_by_relative_path(f"{ASSETS_PATH}{os_separator}logo.ico")
         )
 
         # Load the fonts
