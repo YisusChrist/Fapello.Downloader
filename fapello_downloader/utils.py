@@ -11,11 +11,11 @@ from os.path import join as os_path_join
 from shutil import rmtree
 from webbrowser import open as open_browser
 
-from fapello_downloader.consts import githubme, qs_link, telegramme
+from fapello_downloader.consts import GITHUB, qs_link, telegramme
 
 
 def opengithub() -> None:
-    open_browser(githubme, new=1)
+    open_browser(GITHUB, new=1)
 
 
 def opentelegram() -> None:

@@ -2,13 +2,19 @@
 
 from enum import Enum
 
-app_name = "Fapello.Downloader"
-version = "3.5"
+try:
+    from importlib import metadata
+except ImportError:  # for Python < 3.8
+    import importlib_metadata as metadata  # type: ignore
+
+__version__: str = metadata.version(__package__ or __name__)
+__desc__: str = metadata.metadata(__package__ or __name__)["Summary"]
+GITHUB: str = metadata.metadata(__package__ or __name__)["Home-page"]
+PACKAGE: str | None = __package__
 
 text_color = "#F0F0F0"
 app_name_color = "#ffbf00"
 
-githubme = "https://github.com/Djdefrag/Fapello.Downloader"
 telegramme = "https://linktr.ee/j3ngystudio"
 qs_link = "https://github.com/Djdefrag/QualityScaler"
 

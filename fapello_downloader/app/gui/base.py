@@ -12,7 +12,9 @@ from fapello_downloader.app.gui.consts import (ASSETS_PATH, create_fonts,
                                                logo_git, logo_qs,
                                                logo_telegram, stop_icon)
 from fapello_downloader.app.gui.message_box import CTkMessageBox
-from fapello_downloader.consts import app_name, app_name_color, version
+from fapello_downloader.consts import PACKAGE
+from fapello_downloader.consts import __version__ as VERSION
+from fapello_downloader.consts import app_name_color
 from fapello_downloader.utils import (find_by_relative_path, opengithub,
                                       openqualityscaler, opentelegram)
 
@@ -49,9 +51,14 @@ class GUI:
         self.fonts: dict[str, CTkFont] = create_fonts()
 
     def place_app_name(self) -> None:
+        if PACKAGE:
+            app_name: str = PACKAGE.replace("-", " ").replace("_", " ").title()
+        else:
+            app_name = "Fapello Downloader"
+
         app_name_label = CTkLabel(
             master=self.window,
-            text=app_name + " " + version,
+            text=f"{PACKAGE} {VERSION}",
             text_color=app_name_color,
             font=self.fonts.get("bold20"),
             anchor="w",
