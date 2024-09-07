@@ -67,9 +67,10 @@ class App:
 
         elif "https://fapello.com" in selected_link:
 
-            download_type = 'fapello.com'
+            download_type = "fapello.com"
 
-            if not selected_link.endswith("/"): selected_link = selected_link + '/'
+            if not selected_link.endswith("/"):
+                selected_link = selected_link + "/"
 
             how_many_images = get_Fapello_files_number(selected_link)
 
@@ -77,22 +78,15 @@ class App:
                 self.info_message.set("No files found for this link")
             else:
                 self.process_download = Process(
-                    target = download_orchestrator,
-                    args = (
-                        self.processing_queue,
-                        selected_link,
-                        cpu_number
-                        )
-                    )
+                    target=download_orchestrator,
+                    args=(self.processing_queue, selected_link, cpu_number),
+                )
                 self.process_download.start()
 
                 thread_wait = Thread(
-                    target = self.thread_check_steps_download,
-                    args = (
-                        selected_link,
-                        how_many_images
-                        )
-                    )
+                    target=self.thread_check_steps_download,
+                    args=(selected_link, how_many_images),
+                )
                 thread_wait.start()
 
                 self.gui.place_stop_button(self.stop_button_command)

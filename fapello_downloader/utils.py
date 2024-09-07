@@ -27,7 +27,7 @@ def openqualityscaler() -> None:
 
 
 def find_by_relative_path(relative_path: str) -> str:
-    base_path = getattr(sys, '_MEIPASS', os_path_dirname(os_path_abspath(__file__)))
+    base_path = getattr(sys, "_MEIPASS", os_path_dirname(os_path_abspath(__file__)))
     return os_path_join(base_path, relative_path)
 
 
