@@ -5,7 +5,7 @@ from multiprocessing import Queue as multiprocessing_Queue
 from threading import Thread
 from time import sleep
 from tkinter import StringVar
-
+from urllib.parse import urlparse
 from fapello_downloader.app.gui.base import GUI
 from fapello_downloader.consts import DownloadStatus
 from fapello_downloader.requests_handler import (download_orchestrator,
@@ -64,7 +64,7 @@ class App:
         elif selected_link == "":
             self.info_message.set("Insert a valid Fapello.com link")
 
-        elif "https://fapello.com" in selected_link:
+        elif urlparse(selected_link).hostname == "fapello.com":
             download_type = "fapello.com"
 
             if not selected_link.endswith("/"):
